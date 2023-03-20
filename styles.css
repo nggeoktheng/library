@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+body {
+    padding: 2rem;
+    font-family: 'PT Serif', serif;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+form {
+    background-color: whitesmoke;
+    display: none;
+    margin: auto;
+    padding: 1.2rem 6rem;
+    width: 60vh;
+}
+
+.form-row li {
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    list-style-type: none;
+}
+
+#submit-btn {
+    display: block;
+    margin: 1rem auto;
+}
+
+fieldset {
+    border: none;
+}
+
+fieldset input {
+    margin: 0.3rem;
+    cursor: pointer;
+}
+
+button {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: beige;
+}
+
+#new-book-btn {
+    display: block;
+    margin: 1rem auto;
+}
