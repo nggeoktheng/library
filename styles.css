@@ -60,3 +60,8 @@ button:hover {
     display: block;
     margin: 1rem auto;
 }
+
+#book-library {
+    display: flex;
+    gap: 2rem;
+}

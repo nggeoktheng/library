@@ -14,17 +14,37 @@ function addBookToLibrary(){
     let read = document.querySelector('input[name="read_status"]:checked').value;
     
     let newBook = new Book(title, author, pages, read);
-    console.log(newBook)
 
     myLibrary.push(newBook);
-    console.log(myLibrary)
 
-    for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i])
-    }
+    adding();
 }
 
-// let bookTable = document.getElementById('book-table');
+function adding() {
+    let bookLibrary = document.getElementById('book-library');
+    bookLibrary.innerHTML = "";
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
+        let bookCard = document.createElement('div');
+        bookCard.className = 'bookCard';
+        bookCard.style.borderColor = 'orange';
+        bookCard.style.backgroundColor = 'orange';
+        bookCard.style.width = '35vh';
+        bookCard.style.margin = '0.5rem';
+        bookCard.style.padding = '0.3rem';
+        bookCard.style.textAlign = 'center';
+        bookCard.innerHTML = `
+            <div class="book">
+                <h3>${book.title}</h2>
+                <h4>by ${book.author}</h3>
+                <p>Pages: ${book.pages}</p>
+                <p>Read status: ${book.read}</p>
+            </div>    
+        `;
+        bookLibrary.append(bookCard);
+    }
+}
 
 let newBookBtn = document.querySelector('#new-book-btn');
 let newBookForm = document.querySelector('#new-book-form');
