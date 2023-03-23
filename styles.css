@@ -20,8 +20,8 @@ form {
     background-color: whitesmoke;
     display: none;
     margin: auto;
-    padding: 1.2rem 6rem;
-    width: 60vh;
+    padding: 1.2rem 5rem;
+    width: 50vh;
 }
 
 .form-row li {
@@ -34,15 +34,19 @@ form {
 
 #submit-btn {
     display: block;
-    margin: 1rem auto;
+    margin: 1rem auto 0 auto;
 }
 
-fieldset {
-    border: none;
+.reading-status {
+    display: flex;
+    flex-direction: row;
 }
 
-fieldset input {
-    margin: 0.3rem;
+.reading-status p {
+    margin-right: 1rem;
+}
+
+#read:hover {
     cursor: pointer;
 }
 
@@ -61,7 +65,20 @@ button:hover {
     margin: 1rem auto;
 }
 
-#book-library {
+#library {
     display: flex;
     gap: 2rem;
 }
+
+.book-card {
+    background-color: orange;
+    width: 35vh;
+    margin: 1rem 0.5rem;
+    padding: 0.6rem 0.3rem;
+    text-align: center;
+}
+
+/* #remove-btn {
+    margin-top: 0.5rem;
+    background-color: lemonchiffon;
+} */
