@@ -28,30 +28,38 @@ function adding() {
         let book = myLibrary[i];
         let bookCard = document.createElement('div');
         bookCard.className = 'book-card';
+        bookCard.dataset.index = `data-myLibrary-${i}`;
 
         let bookTitle = document.createElement('div');
         bookTitle.className = 'book-title';
-        bookTitle.innerHTML = book.title;
+        bookTitle.innerText = book.title;
 
         let bookAuthor = document.createElement('div');
         bookAuthor.className = 'book-author';
-        bookAuthor.innerHTML = book.author;
+        bookAuthor.innerText  = `by ${book.author}`;
 
         let bookPages = document.createElement('div');
         bookPages.className = 'book-pages';
-        bookPages.innerHTML = `Pages: ${book.pages}`;
+        bookPages.innerText = `Pages: ${book.pages}`;
 
         let removeBtn = document.createElement('button');
         removeBtn.className = 'remove-btn';
-        removeBtn.innerHTML = 'REMOVE';
-        
+        removeBtn.innerText = 'X';    
+
+        removeBtn.addEventListener('click', function() {
+            if (removeBtn.parentNode.dataset.index === bookCard.dataset.index) {
+                removeBtn.parentElement.remove();
+                myLibrary.splice(i, 1);
+            }
+        })
+
         bookCard.append(bookTitle, bookAuthor, bookPages, removeBtn);
 
         library.append(bookCard);
     }
 }
 
-const newBookBtn = document.getElementById('new-book-btn')
+const newBookBtn = document.getElementById('new-book-btn');
 const newBookForm = document.getElementById('new-book-form');
 
 newBookBtn.addEventListener('click', function() {
