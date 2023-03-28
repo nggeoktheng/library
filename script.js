@@ -14,6 +14,7 @@ function addBookToLibrary(){
     let read = document.getElementById('read').checked;
 
     let newBook = new Book(title, author, pages, read);
+    console.log(newBook);
 
     myLibrary.push(newBook);
 
@@ -42,7 +43,17 @@ function adding() {
         bookPages.className = 'book-pages';
         bookPages.innerText = `Pages: ${book.pages}`;
 
-        let removeBtn = document.createElement('button');
+        let bookRead = document.createElement('div');
+        bookRead.className = 'book-read';
+        bookRead.innerText = `Read: `;
+
+        let input = document.createElement('input');
+        input.className = 'book-read-status';
+        input.setAttribute("type", "checkbox");
+        bookRead.append(input);
+        input.innerText = `${book.read ? input.checked = true : input.checked = false}`;
+
+        const removeBtn = document.createElement('button');
         removeBtn.className = 'remove-btn';
         removeBtn.innerText = 'X';    
 
@@ -53,7 +64,7 @@ function adding() {
             }
         })
 
-        bookCard.append(bookTitle, bookAuthor, bookPages, removeBtn);
+        bookCard.append(bookTitle, bookAuthor, bookPages, bookRead, removeBtn);
 
         library.append(bookCard);
     }
