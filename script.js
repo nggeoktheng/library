@@ -14,7 +14,6 @@ function addBookToLibrary(){
     let read = document.getElementById('read').checked;
 
     let newBook = new Book(title, author, pages, read);
-    console.log(newBook);
 
     myLibrary.push(newBook);
 
@@ -31,15 +30,15 @@ function adding() {
         bookCard.className = 'book-card';
         bookCard.dataset.index = `data-myLibrary-${i}`;
 
-        let bookTitle = document.createElement('div');
+        let bookTitle = document.createElement('h2');
         bookTitle.className = 'book-title';
         bookTitle.innerText = book.title;
 
-        let bookAuthor = document.createElement('div');
+        let bookAuthor = document.createElement('h3');
         bookAuthor.className = 'book-author';
         bookAuthor.innerText  = `by ${book.author}`;
 
-        let bookPages = document.createElement('div');
+        let bookPages = document.createElement('p');
         bookPages.className = 'book-pages';
         bookPages.innerText = `Pages: ${book.pages}`;
 
@@ -53,11 +52,19 @@ function adding() {
         bookRead.append(input);
         input.innerText = `${book.read ? input.checked = true : input.checked = false}`;
 
+        input.addEventListener('click', (e) => {
+            if (e.target.checked === true) {
+                e.target.textContent = true;
+            } else if (e.target.checked === false) {
+                e.target.textContent = false;
+            }
+        })
+
         const removeBtn = document.createElement('button');
         removeBtn.className = 'remove-btn';
         removeBtn.innerText = 'X';    
 
-        removeBtn.addEventListener('click', function() {
+        removeBtn.addEventListener('click', () => {
             if (removeBtn.parentNode.dataset.index === bookCard.dataset.index) {
                 removeBtn.parentElement.remove();
                 myLibrary.splice(i, 1);
@@ -70,16 +77,16 @@ function adding() {
     }
 }
 
-const newBookBtn = document.getElementById('new-book-btn');
-const newBookForm = document.getElementById('new-book-form');
+const addBookBtn = document.getElementById('add-book-btn');
+const addBookForm = document.getElementById('add-book-form');
 
-newBookBtn.addEventListener('click', function() {
-    newBookForm.style.display = 'block';
+addBookBtn.addEventListener('click', () => {
+    addBookForm.style.display = 'block';
 })
 
-newBookForm.addEventListener('submit', function(e) {
+addBookForm.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
-    newBookForm.reset();
-    newBookForm.style.display = 'none';
+    addBookForm.reset();
+    addBookForm.style.display = 'none';
 })

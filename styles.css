@@ -9,19 +9,37 @@
 body {
     padding: 2rem;
     font-family: 'PT Serif', serif;
+    background-color: #ffa07a;
 }
 
 h1 {
     margin-bottom: 2rem;
     text-align: center;
+    color: #d35400;
+}
+
+.button {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    display: block;
+    background-color: #d35400;
+    border-color: #d35400;
+    color: #fdad8f;
+}
+
+#add-book-btn {
+    margin: 1rem auto;
 }
 
 form {
-    background-color: whitesmoke;
+    background-color: #fdad8f;
+    color: #d35400;
     display: none;
     margin: auto;
     padding: 1.2rem 5rem;
     width: 50vh;
+    border-radius: 1rem;
 }
 
 .form-row li {
@@ -33,7 +51,6 @@ form {
 }
 
 #submit-btn {
-    display: block;
     margin: 1rem auto 0 auto;
 }
 
@@ -42,43 +59,61 @@ form {
     flex-direction: row;
 }
 
-.reading-status p {
-    margin-right: 1rem;
+.italics {
+    font-style: italic;
 }
 
 #read:hover {
     cursor: pointer;
 }
 
-button {
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.6rem;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: beige;
-}
-
-#new-book-btn {
-    display: block;
-    margin: 1rem auto;
-}
-
 #library {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    padding-left: 1.4rem;
 }
 
 .book-card {
-    background-color: orange;
-    width: 35vh;
-    margin: 1rem 0.5rem;
+    background-color: #ffbf9b;
+    color: #d35400;
+    width: 33vh;
+    margin: 1rem 1rem;
     padding: 0.6rem 0.3rem;
     text-align: center;
+    border-radius: 0.8rem;
+    position: relative;
 }
 
-/* #remove-btn {
-    margin-top: 0.5rem;
-    background-color: lemonchiffon;
-} */
+.remove-btn {
+    background-color: #ffa07a;
+    border-color: #ffbf9b;
+    color: #d35400;
+    border-radius: 40%;
+    padding: 0.2rem 0.3rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+}
+
+.book-title {
+    font-size: 1.8rem;
+}
+
+input:invalid {
+    background-color: #ffa07a;
+    border-color: #ffa07a;
+}
+
+input:valid {
+    background-color: #ffbf9b;
+    border-color: #ffbf9b;
+}
+
+input[type='checkbox'] {
+    accent-color: #d35400;
+}
+
+div label:before {
+    background-color: #50CDBE;
+}
